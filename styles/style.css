@@ -1,0 +1,906 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+* {
+    /* Remove margens e preenchimentos padrão e usa o modelo de caixa border-box */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Define a fonte padrão para todo o projeto */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ========================================================= */
+/*  1. ESTILOS BASE                             */
+/* ========================================================= */
+
+body {
+    /* Cor de fundo escura, tema principal do site */
+    background: #121212;
+}
+
+/* Espaçamento superior para a seção home, garantindo que o conteúdo não fique sob o header */
+.home-padding-top {
+    padding-top: 120px; 
+}
+
+/* ========================================================= */
+/*  2. HEADER (CABEÇALHO) E NAVEGAÇÃO                      */
+/* ========================================================= */
+
+header {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 20;
+    transition: all 0.3s ease-in-out;
+    /* Trocar o fundo do header para melhor navegação */
+}
+
+header .logo img {
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0;
+    width: auto;
+    max-height: 65px;
+    object-fit: contain;
+    /* Mantém a logo centralizada verticalmente dentro do header */
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: max-height 0.25s ease, transform 0.25s ease;
+}
+
+header .logo {
+    position: relative;
+    max-height: 65px;
+    transition: all 0.3s ease-in-out;
+}
+
+header .menu ul {
+    position: relative;
+    display: flex;
+}
+
+header .menu li {
+    list-style: none;
+}
+
+header .menu li a {
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 17px;
+    margin-left: 100px;
+    margin-top: 10px;
+    transition: color 0.3s;
+}
+
+/* Efeito Hover (passar o mouse) no link */
+/* Replace previous hover-only rule with enhanced base + hover for pill border + subtle size lift */
+header .menu li a {
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 17px;
+    margin-left: 100px;
+    margin-top: 10px;
+    transition: color 0.25s ease, font-size 0.18s ease, border-color 0.25s ease, transform 0.18s ease;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background: transparent;
+}
+
+header .menu ul {
+     gap: 60px; 
+}
+
+header > .menu ul > li > a {
+     margin-left: 0 !important;
+}
+
+@media (max-width: 992px) {
+     header .menu ul {
+          gap: 20px;
+     }
+}
+/* Hover / focus: change text color, show semi-opaque pill border and grow font ~2px */
+header .menu li a:hover,
+header .menu li a:focus,
+header .menu li a:focus-visible {
+    color: #FF6D00;
+    border-color: rgba(255, 109, 0, 0.75); /* same orange with 75% opacity */
+    background: transparent;
+    font-size: 19px; /* +2px from 17px */
+    transform: translateY(-2px); /* small lift for animation feel */
+    outline: none;
+}
+
+/* Botão Hamburguer (Inicialmente Escondido em Desktop) */
+.menu-toggle {
+    color: #fff;
+    font-size: 1.8em;
+    cursor: pointer;
+    display: none; /* Esconde em telas grandes */
+    z-index: 1000;
+}
+
+/* Estilos para o Header Fixo (Sticky Header) - Ativado via JavaScript */
+header.sticky {
+    position: fixed; 
+    background: #121212; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7); 
+    z-index: 999; 
+    padding: 5px 100px; /* Padding menor quando fixo */
+}
+
+header.sticky .logo {
+    max-height: 70px; 
+}
+
+/* Botão no header: fundo transparente com contorno laranja; ao hover fica preenchido */
+header .btn.btn-warning.ms-3 {
+    margin-left: 20px;
+    background: transparent;
+    color: #FF6D00;
+    border: 2px solid #FF6D00;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 40px;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.12s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+/* Hover / focus: preenche com laranja e texto branco */
+header .btn.btn-warning.ms-3:hover,
+header .btn.btn-warning.ms-3:focus,
+header .btn.btn-warning.ms-3:focus-visible {
+    background: #FF6D00;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 109, 0, 0.18);
+    outline: none;
+}
+
+/* Estado ativo: remove o "lift" para feedback */
+header .btn.btn-warning.ms-3:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+
+/* ========================================================= */
+/*  3. SEÇÃO HOME (INÍCIO)                                  */
+/* ========================================================= */
+
+.container-fluid.container-custom{
+    display: flex;
+    align-items: space-between;
+    justify-content: center;
+}
+
+.home home-padding-top {
+
+    /* Seção .home que também tem .home-padding-top aplicada */
+    .home.home-padding-top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* centraliza horizontalmente */
+        justify-content: center;
+        /* centraliza verticalmente na viewport atual */
+        min-height: calc(100vh - 120px);
+        /* centraliza considerando os 120px do header */
+        width: 100%;
+        padding-top: 0;
+        /* já compensado pelo calc acima */
+        box-sizing: border-box;
+    }
+}
+
+.home {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: #121212;
+    display: flex;
+    overflow: hidden;
+}
+
+/* CAMADA DE FUNDO COM OPACIDADE (Textura de fundo) */
+.home::before {
+    content: "";
+    position: absolute; ;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/BG.png'); 
+    background-repeat: repeat;
+    background-size: 350px;
+    opacity: 0.03; /* Transparência para a textura */
+    z-index: 1; 
+}
+
+/* Container de Conteúdo Personalizado (Bootstrap) */
+
+/* Garante altura mínima para alinhar conteúdo verticalmente (desktop) */
+.col-md-6 .row {
+    min-height: calc(100vh - 200px); 
+}
+
+/* Estilos de Texto Comuns na Home */
+.text {
+    color: #fff;
+}
+
+.esquerda .text h2 {
+    text-align: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Destaque para a cor laranja no texto H2 */
+.esquerda .text h2 {
+    line-height: 1; /* aumenta o espaçamento entre linhas para evitar sobreposição */
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.esquerda .text h2 span {
+    font-size: 3.5em;
+    color: #FF6D00;
+    display: inline-block; /* permite quebra controlada sem sobrepor o próximo texto */
+    margin-bottom: 1px; /* espaço extra após a linha do span */
+}
+
+.esquerda .text p {
+    color: #fff;
+    font-size: 1em;
+    text-align: center;
+}
+
+/* --- ESTILOS PARA ÍCONES DE TENDÊNCIA NA COLUNA DA DIREITA --- */
+
+/* Container que agrupa os itens de tendência */
+.tendencia-lista {
+    
+    position: relative;
+    padding-top: 50px;
+    margin-top: 50px; 
+    width: 90%; /* Ocupa a maioria da largura disponível na coluna */
+    max-width: 450px; /* Limita a largura para não ficar muito esticado em telas grandes */
+    margin: auto; /* Centraliza o container horizontalmente dentro da coluna */
+    display: flex;
+    flex-direction: column; /* Empilha os itens verticalmente */
+    gap: 25px; /* Espaço entre cada item de tendência */
+    z-index: 10; /* Garante que fique acima de elementos de fundo, como o círculo laranja */
+}
+
+/* Estilo Básico de cada Item de Tendência (o link clicável) */
+.trend-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 25px; 
+    border-radius: 12px; 
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.05); 
+    color: #fff;
+    border: 1px solid rgba(255, 109, 0, 0.2); 
+    transition: all 0.3s ease-in-out; 
+    cursor: pointer;
+    min-height: 95px; 
+    justify-content: flex-start; 
+}
+/* Efeito ao Passar o Mouse (Micro-interação) */
+.trend-item:hover {
+    background: rgba(255, 109, 0, 0.12); /* Fundo um pouco mais laranja no hover */
+    border-color: #FF6D00; /* Borda mais forte e opaca */
+    transform: translateY(-5px); /* Efeito de "lift" (o item sobe alguns pixels) */
+    box-shadow: 0 5px 15px rgba(255, 109, 0, 0.15); /* Sombra suave para o efeito 3D */
+    color: #fff; /* Mantém a cor do texto branca no hover */
+}
+
+/* Estilo do Ícone de Tendência */
+.trend-icon {
+    color: #FF6D00; 
+    flex-shrink: 3px; 
+    width: 50px; 
+    text-align: center;
+}
+
+/* Estilo do Título da Tendência */
+.trend-title {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 0; /* Remove margem padrão */
+    line-height: 1.2; /* Espaçamento entre linhas */
+    color: #FF6D00; /* Cor laranja para destaque */
+}
+
+/* Estilo da Descrição da Tendência */
+.trend-description {
+    font-size: 0.9em;
+    margin: 0; /* Remove margem padrão */
+    color: #ccc; /* Cor de texto mais clara para a descrição */
+    display: block;
+}
+
+/* ========================================================= */
+/*  4. SEÇÃO REVISTAS                                        */
+/* ========================================================= */
+
+
+
+
+.revistas {
+    width: 100%;
+    /* REMOVA: height: 800px; - Deixe a altura ser definida pelo conteúdo */
+    
+    display: flex; /* Define o layout padrão para desktop (lado a lado) */
+    flex-direction: row; /* Garante que fiquem lado a lado no desktop */
+    align-items: flex-start; /* Alinha no topo para melhor visualização */
+    justify-content: center;
+    gap: 50px;
+    padding: 50px 20px; /* Adiciona padding para evitar que toque as bordas */
+    background-color: #232323;
+}
+
+.container1{
+    margin-bottom: 10px;
+    width: 50%;
+}
+.container2{
+    width: 50%;
+}
+
+.revistas h1 {
+    color: #fff;
+    font-size: 3em;
+    font-weight: 700;
+    text-align: left; 
+    padding: 0  20px;
+}
+.revistas p {
+    font-size: 1em;
+    color : #fff;
+    padding: 0 20px;
+    text-align: justify;
+
+}
+
+.revistas h1 span {
+    color: #FF6D00;
+    font-size: 1.3em;
+}
+
+.card.mb-3 {
+    background-color: #121212;
+    box-shadow: 6px 6px 15px 5px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    
+    .revistas {
+        /* ESSENCIAL: Muda a direção para que os itens se empilhem */
+        flex-direction: column; 
+        
+        /* Ajusta o alinhamento para o centro no celular, se desejar */
+        align-items: center;
+        
+        /* Remove o gap horizontal no mobile ou ajusta-o */
+        gap: 30px; 
+        
+        /* Garante que o container se estique verticalmente */
+        height: auto; 
+    }
+
+    .container1, .container2 {
+        /* ESSENCIAL: Ocupa a largura total no celular */
+        width: 100%; 
+        padding: 0 5%; /* Adiciona um padding nas laterais para que o texto não toque nas bordas */
+        max-width: none; /* Remove qualquer limitação de largura que possa ter */
+    }
+    
+    /* Ajuste o tamanho da fonte para melhor leitura no celular */
+    .revistas h1 {
+        font-size: 2.5em;
+        text-align: center; /* Centraliza o título no celular */
+    }
+    
+    /* Ajuste do Card do Bootstrap (se não estiver funcionando corretamente) */
+    .card .row.g-0 {
+        /* Garante que a imagem e o corpo do card se empilhem no celular */
+        flex-direction: column;
+    }
+    
+    .card .col-md-4, .card .col-md-8 {
+        width: 100%;
+    }
+}
+
+/* ========================================================= */
+/*  5. SEÇÕES DE CONTEÚDO (MODA, MAQUIAGEM, ACESSÓRIOS)      */
+/* ========================================================= */
+
+/*----- Moda -----  */
+
+#carouselExampleInterval {
+    margin-top: 30px;
+    width: 50%; /* Reduz a largura para 50% do contêiner pai */
+    height: 400px; /* Define uma altura específica para o carrossel */
+    align-items: center; /* Define uma altura específica */
+    border-radius: 50%;
+    display: flex;
+}
+
+#carouselExampleCaptions {
+    width: 500px; /* Reduz a largura para 50% do contêiner pai */
+    height: 550px; /* Define uma altura específica para o carrossel */ /* Define uma altura específica */
+    display: flex;
+    margin: auto;
+    margin-top: 10px;
+}
+
+
+
+.carousel-caption{
+    text-shadow: 2px 2px 3px #000000;
+}
+/*----- Maquiagem -----  */
+.maquiagem {
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+
+.carousel-item {
+    border: #121212 solid 2px;
+    box-shadow: 6px 6px 15px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+}
+
+.carousel-item:hover {
+    /* Aumentar o Item (Almentar) */
+    /* scale(1.05) aumenta o tamanho do item em 5% */
+    transform: scale(1.05); 
+    
+    /* Criar uma Sombra */
+    /* box-shadow: deslocamento X, deslocamento Y, raio do borrão, raio de propagação, cor */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+    
+    /* Nota: A sombra se torna mais pronunciada com o aumento do borrão e do deslocamento. */
+}
+
+.carousel-item img{
+    width: 100px; /* Garante que a imagem ocupe toda a largura do contêiner */
+    height: 300px; /* Define uma altura fixa para as imagens */ /* Garante que a imagem cubra o contêiner sem distorção */
+    padding-left: 30px; /* Recuo interno à esquerda */
+    padding-right: 30px;
+    max-width: 500px;
+}
+
+.card{
+    
+    box-shadow: 6px 6px 15px 5px rgba(0, 0, 0, 0.5);
+}
+
+.card-img-top {
+    width: 100%; /* Largura total para as imagens dos cards */
+    height: 550px; /* Altura fixa para as imagens dos cards */
+    object-fit: cover; /* Cobre o contêiner sem distorção */
+    max-width: 500px;
+
+}
+
+.card-body {
+    text-align: center;
+    color: #fff;
+}
+
+.card {
+    background-color: #121212;
+}
+
+.container-tabela-maquiagem{
+    width: 100%;
+    padding: 10px 6px 6px 10px;
+    margin-top: -100px;
+}
+.container-image-maquiagem{
+    width: 100%;
+}
+
+
+/*----- Acessorios -----  */
+
+.acessorios{
+    background-color: #121212; 
+    padding: 0px 0px;
+}
+
+
+#carouselExampleSlidesOnly {
+    width: 400px; /* Reduz a largura para 50% do contêiner pai */
+    height: 400px; /* Define uma altura específica para o carrossel */
+    align-items: center; /* Define uma altura específica */
+    display: flex;
+    margin: auto;
+    margin-top: -30px;
+}
+
+
+
+#acess-1{
+    margin-top: 10px;
+    margin-left: 50 px;
+}
+
+.auto-slide-container {
+    width: 400px; /* Sua largura fixa */
+    height: 500px; /* Sua altura fixa */
+    overflow: hidden;
+    margin: 20px auto; /* ESSENCIAL: Centraliza o carrossel dentro da coluna */
+    
+    /* Outras regras do carrossel, se estiver usando a versão Bootstrap, ignore as regras de animação */
+}
+
+.moda, .contato {
+    background-color: #121212; 
+    padding: 100px 0;
+}
+
+
+/* ----- Jornal -----  */
+
+.text-jornal{
+    text-align: center;
+}
+
+.text-jornal h2{
+    color: #fff;
+    font-size: 3em;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.text-jornal h2 span {
+    color: #FF6D00;
+}
+
+.container-jornal-img {
+    display: flex;
+    height: 50px;
+    width: 50px;
+    align-items: space-evenly;
+    justify-content: center;
+}
+
+.card-container {
+    max-width: 600px; /* Limita o tamanho do card para visualização */
+    margin: 20px auto; /* Centraliza na página */
+    padding: 15px 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+
+}
+
+/* Estilo do Grid 3x3 */
+.grid-3x3 {
+    display: grid;
+    /* Define 3 colunas de largura igual (1 fração de espaço) */
+    grid-template-columns: repeat(3, 1fr); 
+    /* Define 3 linhas (para simular a estrutura 3x3) */
+    grid-template-rows: repeat(2, 1fr); 
+    gap: 10px; /* Espaço entre as células da grade */
+    aspect-ratio: 3 / 2; /* Garante que a grade seja um quadrado perfeito */
+}
+
+/* Estilo de cada item na grade (Imagens e células vazias) */
+.grid-item {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Garante que a imagem não ultrapasse o limite */
+    border-radius: 5px;
+    display: flex; /* Para centralizar o conteúdo, se necessário */
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+}
+
+.grid-item:hover {
+    /* Aumentar o Item (Almentar) */
+    /* scale(1.05) aumenta o tamanho do item em 5% */
+    transform: scale(1.05); 
+    
+    /* Criar uma Sombra */
+    /* box-shadow: deslocamento X, deslocamento Y, raio do borrão, raio de propagação, cor */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+    
+    /* Nota: A sombra se torna mais pronunciada com o aumento do borrão e do deslocamento. */
+}
+
+/* Estilo das imagens dentro da grade */
+.grid-3x3 img {
+    width: 100%;
+    height: 100%;
+    /* Faz a imagem preencher o espaço da célula e corta o excesso */
+    object-fit: cover; 
+    display: block;
+    border-radius: 5px;
+}
+
+/* Estilo para as células que estão vazias (Linha 3) */
+.empty-cell {
+    background-color: #e0e0e0;
+    /* Opcional: Adicionar um texto de placeholder ou cor diferente */
+}
+
+.letreiro-container {
+    overflow: hidden; /* Esconde o texto quando está fora da área */
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.letreiro-texto {
+    /* Define o nome da animação, a duração e a repetição */
+    animation: passar-horizontal 10s linear infinite; 
+    display: inline-block;
+    padding-left: 100%; /* Inicia o texto fora da tela, à direita */
+    color: #fff;
+}
+
+/* Define a animação: Mover de 100% da direita para -100% da esquerda */
+@keyframes passar-horizontal {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+
+/* ========================================================= */
+/*  6. MEDIA QUERIES - RESPONSIVIDADE                        */
+/* ========================================================= */
+
+/* Telas Médias (992px e abaixo - Tablets e Desktops Menores) */
+
+.home-padding-top {
+    padding-top: 120px; /* Garante que o conteúdo comece abaixo do header */
+}
+
+
+@media (max-width: 992px) {
+    
+    /* Ajuste de padding do Header */
+    header {
+        padding: 10px 40px;
+    }
+    header .menu-toggle {
+        display: block; /* Mostra o ícone Hamburguer */
+    }
+
+    /* Estilos do Menu Fechado (fora da tela) */
+    header .menu {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Inicia fora da tela */
+        width: 100%;
+        height: 100%;
+        background: rgba(18, 18, 18, 0.95); /* Fundo com opacidade */
+        padding-top: 100px;
+        transition: left 0.3s ease-in-out;
+        z-index: 99; 
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Menu Aberto (Ativado via JavaScript) */
+    header .menu.active {
+        left: 0; /* Desliza para dentro da tela */
+    }
+    
+    header .menu ul {
+        flex-direction: column; /* Lista vertical para mobile */
+        align-items: center;
+        gap: 20px;
+    }
+    
+    header .menu li a {
+        font-size: 24px;
+        margin: 0;
+        padding: 10px 0;
+    }
+    
+    header.sticky {
+        padding: 5px 40px;
+        position: fixed;
+            /* <--- ESSENCIAL: Garante que ele fique fixo na viewport */
+        top: 0;
+            /* Garante que ele fique no topo */
+        background: #121212;
+            /* Cor de fundo para evitar transparência */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+        z-index: 999;
+            /* Garante que ele fique acima de todo o conteúdo */
+        padding: 5px 100px;
+    }
+    
+    /* Home Section (Tablet) */
+    .home {
+        padding: 50px 20px;
+    }
+    .container-custom {
+        padding: 0 20px;
+        margin-top: 30px;
+    }
+    .container-custom .text h2 {
+        font-size: 2.5em;
+    }
+    .container-custom .text h2 span {
+        font-size: 1em;
+    }
+
+    /* Outras Seções (Padding de Mobile) */
+    .revistas, .moda, .maquiagem, .acessorios, .contato {
+        padding: 50px 20px;
+    }
+    .revistas h1 {
+        font-size: 2.5em;
+    }
+}
+
+/* Telas Pequenas (768px e abaixo - Principalmente Mobile) */
+@media (max-width: 768px) {
+
+    /* Header & Menu (Ajuste de Padding) */
+    header {
+        justify-content: space-between;
+        padding: 10px 20px;
+        flex-direction: row; 
+    }
+    header.sticky {
+        padding: 5px 20px;
+    }
+
+    /* Home Section - Inverte a ordem para Mobile: Formulário (1) antes do Texto (2) */
+    /* Isso é feito via classes Bootstrap: order-md-1 (form) e order-md-2 (text) no HTML, e o reset aqui */
+    .container-custom .row {
+        flex-direction: column-reverse; /* Força a inversão da coluna (texto antes do form) */
+    }
+    .form-container {
+        margin-bottom: 30px;
+    }
+    
+    /* Ajusta o círculo decorativo para o canto superior direito */
+    .circulo {
+        clip-path: circle(70% at top right); 
+    }
+    
+    /* Centraliza o texto e ajusta o tamanho na Home */
+    .container-custom .text h2 {
+        font-size: 2em;
+        text-align: center;
+    }
+    .container-custom .text p {
+        text-align: center;
+    }
+    
+    /* Botão CTA: ocupa 100% da largura em mobile */
+    .container-custom .text a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    /* Cards e Títulos das Seções (Mobile) */
+    .revistas h1 {
+        font-size: 1.8em;
+    }
+    /* Força o tamanho da fonte dos títulos Display-4 do Bootstrap */
+    .display-4 {
+        font-size: 2.5rem !important; 
+    }
+}
+
+/* Ajuste fino para telas extra-pequenas (480px e abaixo) */
+@media (max-width: 480px) {
+    header .logo {
+        max-height: 50px; /* Logo menor em telas muito pequenas */
+    }
+    .revistas .card-img-top {
+        height: 250px; /* Imagem do card menor em telas muito pequenas */
+    }
+}
+
+/* ========================================================= */
+/* 7. MEDIA QUERY - AJUSTE HOME PARA MOBILE (768px e abaixo) */
+/* ========================================================= */
+
+@media (max-width: 768px) {
+    /*
+     * 1. Ajuste do Container Principal da Home
+     * Aplica display: flex e flex-direction: column ao container pai
+     * para que os elementos (texto e lista) se empilhem verticalmente.
+     */
+    .home {
+        /* Garante que o conteúdo do home se empilhe verticalmente */
+        flex-direction: column;
+        /* Centraliza os itens empilhados horizontalmente */
+        align-items: center; 
+        /* Ajusta o min-height para permitir que o conteúdo empilhado se expanda */
+        min-height: auto;
+        /* Adiciona um padding maior no topo e na base para separar de outras seções */
+        padding: 50px 20px 80px 20px;
+    }
+
+    /*
+     * 2. Reverte a ordem dentro do container principal da página
+     * O container-custom contém o texto (`.esquerda`) e a lista de tendências (fora dele no HTML, mas posicionado com Bootstrap).
+     * O `.row` dentro dele contém o texto.
+     */
+    .container-fluid.container-custom {
+        /* Ocupa a largura total para melhor visualização */
+        width: 100%;
+        /* Ajusta a ordem para que o texto (que é o primeiro filho) fique em cima */
+        order: 1;
+        margin-bottom: 30px;
+    }
+
+    /* O elemento que contém a lista de tendências está fora do container-custom,
+     * mas é um par do container-custom no HTML e deve vir DEPOIS dele no mobile.
+     * O elemento que encapsula a lista de tendências é a segunda div com a classe "col-md-6" na section.
+     * Portanto, ajustamos a ordem dos principais blocos de conteúdo da section.
+     */
+     .home .col-md-6.order-md-2.order-1 {
+        /* Força a lista de tendências a ficar embaixo do container-custom */
+        order: 2; 
+        width: 100%; /* Garante que a lista de tendências ocupe a largura total */
+        padding: 0 20px;
+    }
+    
+    /* Centraliza e ajusta o tamanho do texto principal */
+    .esquerda {
+        width: 100%;
+    }
+
+    .esquerda .text h2 {
+        font-size: 2.5em; /* Reduz o tamanho do título H2 */
+        text-align: center;
+    }
+
+    .esquerda .text h2 span {
+        font-size: 1.2em; /* Ajusta o tamanho do Span */
+    }
+
+    .esquerda .text p {
+        text-align: center;
+        font-size: 0.95em;
+        padding: 0;
+    }
+
+    /* Garante que a lista de tendências use a largura total para melhor clique */
+    .tendencia-lista {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding-top: 0;
+    }
+}

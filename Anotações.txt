@@ -1,0 +1,10 @@
+Parte do html so está faltando adicionar o "sobre nós"
+
+Parte do css falta estilizar os carroceis em bootstrap, diminuindo as imagens para se encaixar na tela certo
+
+Fazer um carrocel pequeno na parte de acessórios e moda também, dependendo se conseguir estilizar os carroceis das artistas, posso usar o mesmo para as outras sessões.
+
+Estilizar o sobre nos.
+
+Linkar o html da área de login (se não estiver estilizado, mandar o cicero estilizar)
+

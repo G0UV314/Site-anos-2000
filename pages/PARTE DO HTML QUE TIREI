@@ -1,0 +1,247 @@
+<class="row justify-content-center">
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="../img/veja.jpeg" class="card-img-top" alt="Capa Veja">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Revista Veja</h5>
+                            <p class="card-text">VEJA era o jornalismo de informação e fiscalização para a elite, e a
+                                moda era uma pauta secundária, tratada como Comportamento para analisar o consumo e o
+                                estilo de vida da sociedade da época.</p>
+                            <a href="https://veja.abril.com.br/" class="btn btn-primary mt-auto">Veja no site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="../img/Capricho.jpeg" class="card-img-top" alt="Capa Capricho">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Revista Capricho</h5>
+                            <p class="card-text">CAPRICHO nos anos 2000 era o manual da adolescente brasileira, onde a
+                                moda era um pilar fundamental para a construção da identidade e a socialização do
+                                público jovem, com foco na acessibilidade e nas tendências pop.</p>
+                            <a href="https://capricho.abril.com.br/moda/10-looks-iconicos-que-as-famosas-usaram-nos-anos-2000/" class="btn btn-primary mt-auto">Veja no site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="../img/Caras.jpeg" class="card-img-top" alt="Capa Caras">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Revista Caras</h5>
+                            <p class="card-text">CARAS nos anos 2000 era a vitrine do luxo e da ostentação das
+                                celebridades, onde a moda era um componente essencial para construir a imagem de sucesso
+                                e glamour vendida ao seu leitor.</p>
+                            <a href="https://caras.com.br/" class="btn btn-primary mt-auto">Veja no site</a>
+                        </div>
+                    </div>
+                </div>
+
+            </class=>
+        </div>
+
+
+
+==================== OUTRA PARTE DO HTML QUE TIREI ====================*/========================
+
+#sidebar-carousel {
+    /* Não mais fixo na viewport: encaixa-se no container2 */
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 160px 0px 0px; /* conforme solicitado */
+    background: transparent;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10; /* mantém acima do conteúdo local, não da página inteira */
+    overflow: visible;
+}
+
+/* Container do carrossel: sem traçado branco, com sombra atrás de cada capa */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden; /* Oculta áreas fora do slide */
+    border-radius: 12px;
+    background: #272727; /* leve fundo para contraste */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6); /* sombra atrás da capa */
+    margin-top: 15px;
+}
+
+/* Inner e itens do carrossel */
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative; /* necessário para legenda/gradiente */
+}
+
+/* Imagens: tamanho padrão para todas e destacadas */
+.carousel-item img {
+    width: 100%;
+    height: 340px; /* tamanho padrão (desktop) para uniformizar */
+    object-fit: cover; /* evita distorção, corta para preencher */
+    display: block;
+    border-radius: 10px;
+}
+
+/* Gradiente no final da foto para destacar o texto (apenas sobre a imagem) */
+.carousel-item .carousel-gradient {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 45%;
+    pointer-events: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+    z-index: 2;
+}
+
+/* Texto sobrepondo a imagem (em branco) */
+.carousel-caption {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 20px;
+    z-index: 3;
+    color: #ffffff;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.carousel-caption h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+.carousel-caption p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.95);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+}
+
+/* Remove qualquer borda branca antiga que possa ter sido aplicada */
+.carousel-container,
+.carousel-item img {
+    border: none;
+}
+
+/* Ajustes responsivos: diminui padding e altura das imagens em telas menores */
+@media (max-width: 992px) {
+    #sidebar-carousel {
+        padding: 20px 60px 80px 40px;
+    }
+    .carousel-item img {
+        height: 200px;
+    }
+    .carousel-item .carousel-gradient {
+        height: 48%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Em mobile, o carrossel ocupa largura total do container pai e padding reduzido */
+    #sidebar-carousel {
+        padding: 20px;
+        align-items: stretch;
+    }
+    .carousel-item img {
+        height: 220px; /* menor para mobile */
+    }
+    .carousel-caption {
+        left: 12px;
+        right: 12px;
+        bottom: 14px;
+    }
+    .carousel-item .carousel-gradient {
+        height: 55%;
+    }
+}
+
+/* Pequenos refinamentos para telas muito estreitas */
+@media (max-width: 480px) {
+    .carousel-item img {
+        height: 180px;
+    }
+    .carousel-caption h3 {
+        font-size: 1rem;
+    }
+    .carousel-caption p {
+        font-size: 0.85rem;
+    }
+}
+==================== OUTRA PARTE DO HTML QUE TIREI ====================*/=======================
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px; /* Largura da "caixa" cinza, igual à capa */
+    overflow: hidden; /* Oculta os slides que não estão ativos */
+    border-radius: 8px;
+    margin: auto; /* Centraliza horizontalmente dentro do sidebar */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    background-color: #444; /* Cor da "caixa" cinza, um pouco mais clara */
+    display: flex; /* Para centralizar a imagem verticalmente */
+    align-items: center; /* Centraliza a imagem verticalmente */
+    justify-content: center; /* Centraliza a imagem horizontalmente */
+
+    /* 🌟 Animação ao passar o mouse pelo carrossel inteiro */
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.carousel-container:hover {
+    transform: translateY(-5px) scale(0.99); /* Leve subida e aumento */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Transição suave */
+    height: 100%;
+    width: 300%;
+}
+
+.carousel-item {
+    min-width: 33.3333%; /* Cada item ocupa 100% do container */
+    box-sizing: border-box;
+    text-align: center;
+    position: relative; /* Para posicionar a legenda */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Alinha a imagem no topo e a legenda no fundo */
+    user-select: none; /* 🚫 Impede a seleção de texto nas imagens */
+    -webkit-user-select: none; /* Para navegadores WebKit */
+    -moz-user-select: none; /* Para Firefox */
+    -ms-user-select: none;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    max-height: 1000px; /* Limita a altura da imagem */
+    object-fit: cover;
+}
+.carouselExampleInterval {
+    margin: auto;
+}
